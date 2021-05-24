@@ -4,7 +4,6 @@
     <a-menu
         theme="dark"
         mode="horizontal"
-        v-model:selectedKeys="selectedKeys1"
         :style="{ lineHeight: '64px' }"
     >
       <a-menu-item key="1">nav 111</a-menu-item>
