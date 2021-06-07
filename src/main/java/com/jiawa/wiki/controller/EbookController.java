@@ -1,5 +1,7 @@
 package com.jiawa.wiki.controller;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.jiawa.wiki.req.EbookQueryReq;
 import com.jiawa.wiki.req.EbookSaveReq;
 import com.jiawa.wiki.resp.CommonResp;
@@ -9,7 +11,7 @@ import com.jiawa.wiki.service.EbookService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-
+@JsonSerialize(using = ToStringSerializer.class)
 @RestController
 @RequestMapping("/ebook")
 public class EbookController {
@@ -32,7 +34,6 @@ public class EbookController {
         ebookService.save(req);
         return resp;
     }
-
     @DeleteMapping("/delete/{id}")
     public CommonResp delete(@PathVariable Long id){
 

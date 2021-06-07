@@ -1,5 +1,4 @@
 package com.jiawa.wiki.resp;
-
 public class CommonResp<T> {
 
     /**
