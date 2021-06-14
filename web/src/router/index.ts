@@ -33,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/admin/doc',
     name: 'AdminDoc',
-    component: AdminDoc
+    component: AdminDoc,
   },
 ]
 
