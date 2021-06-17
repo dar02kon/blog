@@ -33,21 +33,12 @@ public class DocService {
     @Resource
     private SnowFlake snowFlake;
 
-    public List<DocQueryResp> all(){
+    public List<DocQueryResp> all(Long ebookId){
         DocExample docExample = new DocExample();
+        docExample.createCriteria().andEbookIdEqualTo(ebookId);
         docExample.setOrderByClause("sort asc");
         List<Doc> docList = docMapper.selectByExample(docExample);
-
-//        List<DocResp> respList = new ArrayList<>();
-//        for (Doc doc : docList) {
-//            DocResp docResp = new DocResp();
-//            BeanUtils.copyProperties(doc,docResp);
-//            DocResp docResp = CopyUtil.copy(doc, DocResp.class);
-//
-//            respList.add(docResp);
-//        }
-
-
+        //列表复制
         List<DocQueryResp> list = CopyUtil.copyList(docList, DocQueryResp.class);
         return list;
     }
