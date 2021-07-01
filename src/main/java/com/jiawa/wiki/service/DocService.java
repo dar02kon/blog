@@ -7,6 +7,7 @@ import com.jiawa.wiki.domain.Doc;
 import com.jiawa.wiki.domain.DocExample;
 import com.jiawa.wiki.mapper.ContentMapper;
 import com.jiawa.wiki.mapper.DocMapper;
+import com.jiawa.wiki.mapper.DocMapperCust;
 import com.jiawa.wiki.req.DocQueryReq;
 import com.jiawa.wiki.req.DocSaveReq;
 import com.jiawa.wiki.resp.DocQueryResp;
@@ -27,6 +28,8 @@ public class DocService {
 
     @Resource
     private DocMapper docMapper;
+    @Resource
+    private DocMapperCust docMapperCust;
 
     @Resource
     private ContentMapper contentMapper;
@@ -81,6 +84,8 @@ public class DocService {
         if(ObjectUtils.isEmpty(req.getId())){
             //新增
             doc.setId(snowFlake.nextId());
+            doc.setViewCount(0);
+            doc.setVoteCount(0);
             docMapper.insertSelective(doc);
 
             content.setId(doc.getId());
@@ -108,6 +113,7 @@ public class DocService {
 
     public String findContent(Long id){
         Content content = contentMapper.selectByPrimaryKey(id);
+        docMapperCust.increaseViewCount(id);
         if(ObjectUtils.isEmpty(content)){
             return "";
 
