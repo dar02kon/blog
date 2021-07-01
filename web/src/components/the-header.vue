@@ -72,8 +72,8 @@ declare let KEY: any;
      const user = computed(() => store.state.user);
      //用来登录
      const loginUser = ref({
-       loginName: "test",
-       password: "123"
+       loginName: "KON",
+       password: "KON"
      });
 
      const loginModalVisible = ref(false);
