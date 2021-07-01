@@ -151,11 +151,11 @@ export default defineComponent({
         },
         pageSize: 3,
       },
-      actions:[
-      { type: 'StarOutlined', text: '156' },
-      { type: 'LikeOutlined', text: '156' },
-      { type: 'MessageOutlined', text: '2' },
-     ],
+     //  actions:[
+     //  { type: 'StarOutlined', text: '156' },
+     //  { type: 'LikeOutlined', text: '156' },
+     //  { type: 'MessageOutlined', text: '2' },
+     // ],
 
       handleClick,
       level1,
