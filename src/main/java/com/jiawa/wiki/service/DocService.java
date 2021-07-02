@@ -50,6 +50,7 @@ public class DocService {
     private WsService wsService;
 
 
+
     public List<DocQueryResp> all(Long ebookId){
         DocExample docExample = new DocExample();
         docExample.createCriteria().andEbookIdEqualTo(ebookId);
