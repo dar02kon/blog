@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="tip">
-      <div><b>示例网站说明：</b></div>
-      <div>1. 统计数据是真实的，一分钟左右延时。</div>
-      <div>2. 有文档被点赞会收到实时通知哦！</div>
-      <div>3. 左侧菜单是动态加载的，登录后在分类管理可配置</div>
-      <div>4. 文档树可无限级扩展，支持文字、图片、<b>视频</b></div>
-      <div>你也想有个WIKI知识库吗？，<b>配套视频课程</b>：
-        <a href="https://coding.imooc.com/class/474.html" target="_blank">
-          《SpringBoot知识体系+Vue3全家桶 前后端分离 实战WIKI知识库系统》
-        </a>
-      </div>
-    </div>
+<!--    <div class="tip">-->
+<!--      <div><b>示例网站说明：</b></div>-->
+<!--      <div>1. 统计数据是真实的，一分钟左右延时。</div>-->
+<!--      <div>2. 有文档被点赞会收到实时通知哦！</div>-->
+<!--      <div>3. 左侧菜单是动态加载的，登录后在分类管理可配置</div>-->
+<!--      <div>4. 文档树可无限级扩展，支持文字、图片、<b>视频</b></div>-->
+<!--      <div>你也想有个WIKI知识库吗？，<b>配套视频课程</b>：-->
+<!--        <a href="https://coding.imooc.com/class/474.html" target="_blank">-->
+<!--          《SpringBoot知识体系+Vue3全家桶 前后端分离 实战WIKI知识库系统》-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <a-row>
       <a-col :span="24">
@@ -145,10 +145,10 @@ export default defineComponent({
     const init30DayEcharts = (list: any) => {
       // 发布生产后出现问题：切到别的页面，再切回首页，报表显示不出来
       // 解决方法：把原来的id=main的区域清空，重新初始化
-      const mainDom = document.getElementById('main-col');
-      if (mainDom) {
-        mainDom.innerHTML = '<div id="main" style="width: 100%;height:300px;"></div>';
-      }
+      // const mainDom = document.getElementById('main-col');
+      // if (mainDom) {
+      //   mainDom.innerHTML = '<div id="main" style="width: 100%;height:300px;"></div>';
+      // }
       // 基于准备好的dom，初始化echarts实例
       const myChart = echarts.init(document.getElementById('main'));
 
@@ -220,7 +220,7 @@ export default defineComponent({
         if (data.success) {
           const statisticList = data.content;
 
-          init30DayEcharts(statisticList)
+          init30DayEcharts(statisticList);
         }
       });
     };
@@ -255,8 +255,8 @@ export default defineComponent({
 
     onMounted(() => {
       getStatistic();
-      testEcharts();
-      // get30DayStatistic();
+      // testEcharts();
+      get30DayStatistic();
     });
 
     return {
@@ -265,13 +265,4 @@ export default defineComponent({
   }
 });
 </script>
-<style scoped>
-.tip {
-  padding: 10px 5px;
-  margin-bottom: 20px;
-  color: red;
-  border: 1px solid transparent;
-  background: linear-gradient(white,white) padding-box,repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0/.6em .6em;
-  animation:ants 12s linear infinite;
-}
-</style>
+
